@@ -13,7 +13,7 @@ function buttonClicked(ev) {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: JSON.stringify({id: ev.currentTarget.getAttribute('id'), value: renderedMovie.id}),
+      body: JSON.stringify({value: ev.currentTarget.getAttribute('id'), id: renderedMovie.id}),
     })
     .then((response) => response.status < 400 ?
         Promise.resolve() :
