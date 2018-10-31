@@ -1,0 +1,20 @@
+* {
+  font: 48px Arial;
+}
+
+body#movie_page #movie { display: block; }
+
+#movie { display: none; }
+
+.movie-title {
+  font: 48px Arial;
+}
+
+button {
+  width: 300px;
+  height: 80px;
+  background: blue;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
