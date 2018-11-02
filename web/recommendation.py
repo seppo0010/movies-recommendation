@@ -175,9 +175,9 @@ def prepare_df(df):
     open_properties(df, 'production_companies', production_companies)
     open_properties(df, 'production_countries', production_countries)
     open_properties(df, 'spoken_languages', spoken_languages)
-    return df[genres + keywords + production_companies + production_countries + spoken_languages + raw_fields]
+    return df[['id'] + genres + keywords + production_companies + production_countries + spoken_languages + raw_fields]
 
 
 if __name__ == '__main__':
     df = pd.read_csv('../data/tmdb_5000_movies.csv')
-    print(prepare_df(df))
+    prepare_df(df).to_csv('../data/prepared.csv')
