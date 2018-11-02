@@ -1,5 +1,8 @@
 import json
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_validate
+import pickle
 
 genres = [
     'action',
@@ -176,6 +179,20 @@ def prepare_df(df):
     open_properties(df, 'production_countries', production_countries)
     open_properties(df, 'spoken_languages', spoken_languages)
     return df[['id'] + genres + keywords + production_companies + production_countries + spoken_languages + raw_fields]
+
+
+def train_model(df):
+    df['label'] = df['label'].apply(lambda x: int(x == 'g'))
+    y = df['label']
+    X = df.drop(['label'], axis=1)
+    clf = RandomForestClassifier(class_weight='balanced', random_state=0, n_estimators=50)
+    result = cross_validate(clf, X, y, scoring=['accuracy'], return_train_score=False)
+    clf.fit(X, y)
+    result['model'] = clf
+    return pickle.dumps(result)
+
+
+load_model = pickle.loads
 
 
 if __name__ == '__main__':

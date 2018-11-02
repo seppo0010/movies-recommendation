@@ -5,6 +5,12 @@ function render_movie(movie) {
   document.body.setAttribute('id', 'movie_page')
   document.getElementById('movie-title').innerText = movie.title;
   document.getElementById('movie-year').innerText = movie.release_date.substr(0, 4);
+  if (movie.prediction !== undefined) {
+    document.getElementById('movie-proba').innerText = (movie.prediction * 100).toFixed(2) + '%'
+  }
+  if (movie.accuracy !== undefined) {
+    document.getElementById('accuracy').innerText = 'Accuracy: ' + (movie.accuracy * 100).toFixed(2) + '%'
+  }
 }
 
 function buttonClicked(ev) {
