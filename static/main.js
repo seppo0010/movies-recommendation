@@ -1,4 +1,4 @@
-var baseUrl = '/'
+var baseUrl = 'https://cors-anywhere.herokuapp.com/35.196.234.98:5000/'
 var renderedMovie;
 
 function render_movie(movie) {
