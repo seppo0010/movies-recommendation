@@ -47,5 +47,5 @@ function fetchMovie() {
 
 document.addEventListener('DOMContentLoaded', () => {
   Array.prototype.forEach.call(document.getElementsByTagName('button'), (b) => b.addEventListener('click', buttonClicked));
-  fetchMovie()
+  fetch(baseUrl).then(fetchMovie)
 });
