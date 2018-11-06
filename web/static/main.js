@@ -6,10 +6,13 @@ function render_movie(movie) {
   document.getElementById('movie-title').innerText = movie.title;
   document.getElementById('movie-year').innerText = movie.release_date.substr(0, 4);
   if (movie.prediction !== undefined) {
+    document.getElementById('movie-proba-block').style.display = 'block'
     document.getElementById('movie-proba').innerText = (movie.prediction * 100).toFixed(2) + '%'
+  } else {
+    document.getElementById('movie-proba-block').style.display = 'none'
   }
   if (movie.accuracy !== undefined) {
-    document.getElementById('accuracy').innerText = 'Accuracy: ' + (movie.accuracy * 100).toFixed(2) + '%'
+    document.getElementById('accuracy').innerText = 'Accuracy del modelo: ' + (movie.accuracy * 100).toFixed(2) + '%'
   }
 }
 
