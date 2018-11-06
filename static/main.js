@@ -1,3 +1,4 @@
+var baseUrl = '/'
 var renderedMovie;
 
 function render_movie(movie) {
@@ -17,7 +18,7 @@ function render_movie(movie) {
 }
 
 function buttonClicked(ev) {
-  fetch('rank', {
+  fetch(baseUrl + 'rank', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -36,7 +37,7 @@ function render_error(err) {
 }
 
 function fetchMovie() {
-  fetch('movie_to_rank')
+  fetch(baseUrl + 'movie_to_rank')
     .then((response) => response.status < 400 ?
         response.json() :
         Promise.reject(response.statusText))
