@@ -11,3 +11,7 @@ https://www.kaggle.com/tmdb/tmdb-movie-metadata
 ## Slides
 
 https://docs.google.com/presentation/d/1DXU-QFN_8eDze2nMsK1wbep4WhWFEYUGFkiArdpMQD4/edit?usp=sharing
+
+## Interactive movies demo
+
+https://seppo0010.github.io/movies-recommendation/
